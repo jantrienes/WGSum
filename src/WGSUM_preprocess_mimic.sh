@@ -1,4 +1,6 @@
 #!/bin/sh
+set -ex
+
 IN_PATH=../data/mimic/
 OUT_PATH=../data/mimic/bert/
 mkdir -p $OUT_PATH
