@@ -323,10 +323,6 @@ def build_entity_graph(data_path,entity_modified=True,entity_interval=True,entit
             dic_items['edges_deparser_with_nodeid'] = edges_deparser_with_nodeid
 
 
-            if len(fingings_list)>10 and len(impression_list)>3:
-                print(json.dumps(dic_items), file=new_json_file)
-
-
 # radiology
 
 def add_edge_words(data_path):
