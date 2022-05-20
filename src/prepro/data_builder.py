@@ -320,9 +320,7 @@ def format_to_bert(args):
 
     path = dict()
 
-    from pathlib import Path
-    d = Path(__file__).parent.parent.parent / 'data' / 'mimic'
-    path['train'] = d / 'reports.train_with_entity_modified_interval_deparser.jsonl'
+    path['train'] = Path(args.raw_path) / 'reports.train_with_entity_modified_interval_deparser.jsonl'
     # path['valid'] = '../mimic/valid.jsonl'
     # path['test'] = '../mimic/test.jsonl'
 
