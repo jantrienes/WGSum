@@ -315,11 +315,14 @@ def format_to_bert(args):
     if (args.dataset != ''):
         datasets = [args.dataset]
     else:
-        datasets = ['train', 'valid', 'test']
+        # datasets = ['train', 'valid', 'test']
+        datasets = ['train']
 
     path = dict()
 
-    # path['train'] = '../mimic/train.jsonl'
+    from pathlib import Path
+    d = Path(__file__).parent.parent.parent / 'data' / 'mimic'
+    path['train'] = d / 'reports.train_with_entity_modified_interval_deparser.jsonl'
     # path['valid'] = '../mimic/valid.jsonl'
     # path['test'] = '../mimic/test.jsonl'
 
@@ -476,6 +479,3 @@ def _format_to_lines(params):
     print(f)
     source, tgt = load_json(f, args.lower)
     return {'src': source, 'tgt': tgt}
-
-
-
