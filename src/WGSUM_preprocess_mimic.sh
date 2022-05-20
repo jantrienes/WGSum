@@ -3,6 +3,10 @@ IN_PATH=../data/mimic/
 OUT_PATH=../data/mimic/bert/
 mkdir -p $OUT_PATH
 
+python ../graph_construction/graph_construction.py ../data/mimic/train.jsonl
+python ../graph_construction/graph_construction.py ../data/mimic/valid.jsonl
+python ../graph_construction/graph_construction.py ../data/mimic/test.jsonl
+
 CUDA_VISIBLE_DEVICES=1 python preprocess.py \
 -mode format_to_bert \
 -raw_path $IN_PATH \
