@@ -2,6 +2,7 @@
 DATA_PATH=../data/mimic/bert/radiology
 MODEL_PATH=../models/mimic-replication
 GPUS=1,2,3,4,5
+mkdir -p $MODEL_PATH
 
 # Training
 python train.py \
