@@ -319,9 +319,9 @@ def format_to_bert(args):
 
     path = dict()
 
-    # path['train'] = '../mimic/train.jsonl'
-    # path['valid'] = '../mimic/valid.jsonl'
-    # path['test'] = '../mimic/test.jsonl'
+    path['train'] = f'{args.raw_path}/train_with_entity_modified_interval_deparser.jsonl'
+    path['valid'] = f'{args.raw_path}/valid_with_entity_modified_interval_deparser.jsonl'
+    path['test'] = f'{args.raw_path}/test_with_entity_modified_interval_deparser.jsonl'
 
 
     for corpus_type in datasets:
@@ -476,6 +476,3 @@ def _format_to_lines(params):
     print(f)
     source, tgt = load_json(f, args.lower)
     return {'src': source, 'tgt': tgt}
-
-
-
