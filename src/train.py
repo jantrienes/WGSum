@@ -4,6 +4,10 @@
 """
 from __future__ import division
 
+import random
+
+import numpy as np
+import torch
 import argparse
 import os
 from others.logging import init_logger
@@ -21,12 +25,6 @@ def str2bool(v):
         return False
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
-
-
-import random
-
-import numpy as np
-import torch
 
 
 def seed_everything(seed: int):
@@ -146,7 +144,7 @@ if __name__ == '__main__':
             baseline(args, cal_oracle=True)
         if (args.mode == 'test'):
             seed_everything(args.seed)
-            
+
             cp = args.test_from
             try:
                 step = int(cp.split('.')[-2].split('_')[-1])
