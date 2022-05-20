@@ -9,4 +9,4 @@ CUDA_VISIBLE_DEVICES=1 python preprocess.py \
 -lower \
 -n_cpus 1 \
 -log_file $out_path/preprocess.log \
--type edges_word
+-type edge_words
