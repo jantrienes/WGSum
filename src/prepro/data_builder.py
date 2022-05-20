@@ -10,7 +10,6 @@ import subprocess
 from collections import Counter
 from os.path import join as pjoin
 from tqdm import tqdm
-from pathlib import Path
 
 import torch
 from multiprocess import Pool
@@ -320,8 +319,8 @@ def format_to_bert(args):
         datasets = ['train']
 
     path = dict()
-    
-    path['train'] = Path(args.raw_path) / 'reports.train_with_entity_modified_interval_deparser.jsonl'
+
+    path['train'] = f'{args.raw_path}/reports.train_with_entity_modified_interval_deparser.jsonl'
     # path['valid'] = '../mimic/valid.jsonl'
     # path['test'] = '../mimic/test.jsonl'
 
