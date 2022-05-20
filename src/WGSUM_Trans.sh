@@ -10,7 +10,7 @@ python train.py \
 -dec_dropout 0.1 \
 -log_file $MODEL_PATH/training.log \
 -lr 0.05 \
--MODEL_PATH $MODEL_PATH \
+-model_path $MODEL_PATH \
 -save_checkpoint_steps 200 \
 -seed 777 \
 -sep_optim false \
@@ -40,7 +40,7 @@ python train.py \
 -test_batch_size 500 \
 -bert_data_path $DATA_PATH \
 -log_file $MODEL_PATH/validate.log \
--MODEL_PATH $MODEL_PATH \
+-model_path $MODEL_PATH \
 -sep_optim true \
 -use_interval true \
 -visible_gpus 0 \
