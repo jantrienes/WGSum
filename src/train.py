@@ -4,6 +4,10 @@
 """
 from __future__ import division
 
+import random
+
+import numpy as np
+import torch
 import argparse
 import os
 from others.logging import init_logger
@@ -22,6 +26,18 @@ def str2bool(v):
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
 
+
+def seed_everything(seed: int):
+    r"""Sets the seed for generating random numbers in PyTorch, numpy and
+    Python.
+
+    Args:
+        seed (int): The desired seed.
+    """
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
 
 
 
@@ -127,6 +143,8 @@ if __name__ == '__main__':
         elif (args.mode == 'oracle'):
             baseline(args, cal_oracle=True)
         if (args.mode == 'test'):
+            seed_everything(args.seed)
+
             cp = args.test_from
             try:
                 step = int(cp.split('.')[-2].split('_')[-1])
