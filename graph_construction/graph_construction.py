@@ -474,6 +474,4 @@ def obtain_word_pair_for(data_path):
 
 
 if __name__ == '__main__':
-    build_entity_graph('example.jsonl')
-
-
+    build_entity_graph(sys.argv[1])
