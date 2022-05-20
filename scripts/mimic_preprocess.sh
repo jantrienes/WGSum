@@ -9,7 +9,7 @@ python ../graph_construction/graph_construction.py ../data/mimic/train.jsonl
 python ../graph_construction/graph_construction.py ../data/mimic/valid.jsonl
 python ../graph_construction/graph_construction.py ../data/mimic/test.jsonl
 
-CUDA_VISIBLE_DEVICES=1 python preprocess.py \
+CUDA_VISIBLE_DEVICES=1 python ../src/preprocess.py \
 -mode format_to_bert \
 -raw_path $IN_PATH \
 -save_path $OUT_PATH  \

@@ -5,7 +5,7 @@ GPUS=1,2,3,4,5
 mkdir -p $MODEL_PATH
 
 # Training
-python train.py \
+python ../src/train.py \
 -mode train -accum_count 5 \
 -batch_size 300 \
 -bert_data_path $DATA_PATH \
