@@ -315,14 +315,13 @@ def format_to_bert(args):
     if (args.dataset != ''):
         datasets = [args.dataset]
     else:
-        # datasets = ['train', 'valid', 'test']
-        datasets = ['train']
+        datasets = ['train', 'valid', 'test']
 
     path = dict()
 
-    path['train'] = f'{args.raw_path}/reports.train_with_entity_modified_interval_deparser.jsonl'
-    # path['valid'] = '../mimic/valid.jsonl'
-    # path['test'] = '../mimic/test.jsonl'
+    path['train'] = f'{args.raw_path}/train_with_entity_modified_interval_deparser.jsonl'
+    path['valid'] = f'{args.raw_path}/valid_with_entity_modified_interval_deparser.jsonl'
+    path['test'] = f'{args.raw_path}/test_with_entity_modified_interval_deparser.jsonl'
 
 
     for corpus_type in datasets:
