@@ -359,8 +359,8 @@ def _format_to_bert(params):
         findings = ' '.join(d['findings'])
         doc = nlp(findings)
 
-        tgt = []
-        tgt.append(d['impression'])
+        tgt = d['impression']
+
         for sentence in doc.sentences:
             sent = []
             for i in range(len(sentence.words)):
