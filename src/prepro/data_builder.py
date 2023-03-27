@@ -351,7 +351,7 @@ def _format_to_bert(params):
     logger.info('Processing %s' % json_file)
 
     datasets = []
-    count_i = 1
+    count_i = 0
     for line in tqdm(open(json_file,'r').readlines()):
         source = []
 
@@ -403,14 +403,15 @@ def _format_to_bert(params):
                        'src_txt': src_txt, "tgt_txt": tgt_txt,'edges':edges,'node_id':node_id,
                        'nodes_set':find_vocab,'subtoken_edges':subtoken_edges}
         datasets.append(b_data_dict)
-        if(len(datasets) == 2000):
+
+        if len(datasets) == 2000:
+            # Write in batches
             torch.save(datasets, os.path.join(args.save_path,'radiology.'+corpus_type+'.' + str(count_i) + '.bert.pt'))
             count_i = count_i + 1
             datasets = []
 
-    logger.info('Processed instances %d' % len(datasets))
-    logger.info('Saving to %s' % save_file)
-    torch.save(datasets, save_file)
+    # Write last batch
+    torch.save(datasets, os.path.join(args.save_path,'radiology.'+corpus_type+'.' + str(count_i) + '.bert.pt'))
     datasets = []
     gc.collect()
 
